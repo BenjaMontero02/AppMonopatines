@@ -11,10 +11,10 @@ import java.io.Serializable;
 public class ScooterTripId implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "scooter_id", foreignKey = @ForeignKey(name = "Fk_scooter_ScooterTrip"))
+    @JoinColumn(name = "scooter_id")
     private Scooter idScooter;
     @ManyToOne
-    @JoinColumn(name = "trip_id", foreignKey = @ForeignKey(name = "Fk_trip_ScooterTrip"))
+    @JoinColumn(name = "trip_id")
     private Trip idTrip;
 
     public ScooterTripId(Scooter idScooter, Trip idTrip) {

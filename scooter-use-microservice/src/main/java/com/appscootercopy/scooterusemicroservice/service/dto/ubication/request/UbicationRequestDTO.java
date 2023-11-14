@@ -9,10 +9,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UbicationRequestDTO {
 
-    @NotNull(message = "ID cannot be null")
-    @NotEmpty(message = "")
+    @NotNull(message = "The x cannot be null")
     private Double x;
-    @NotNull(message = "")
-    @NotEmpty(message = "")
+    @NotNull(message = "The y cannot be null")
     private Double y;
 }

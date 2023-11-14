@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class ScooterResponseDTO implements Serializable {
 
     private Long id;
-    private Long licensePLate;
+    private String licensePLate;
     private Boolean available;
     private Long ubication_id;
 

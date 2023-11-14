@@ -21,7 +21,7 @@ public class AccountController {
         this.accountService=accountService;
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public ResponseEntity save(@RequestBody @Valid AccountRequestDTO request){
         return accountService.save(request);
     }
@@ -32,7 +32,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}/users") //get associated users from the account
-    public List<UserAccountResponseDTO> getAllUserAccountsByUserId(@PathVariable Long id){
+    public List<UserAccountResponseDTO> getAllUserAccountsByAccountId(@PathVariable Long id){
         return accountService.findAllUserAccounByAccountId(id);
     }
 
@@ -52,5 +52,6 @@ public class AccountController {
     public ResponseEntity updateAccount(@RequestBody @Valid AccountRequestDTO request, @PathVariable Long id){
         return accountService.updateAccount(request,id);
     }
+
 
 }

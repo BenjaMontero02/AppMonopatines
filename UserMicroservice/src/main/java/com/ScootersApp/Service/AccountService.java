@@ -87,4 +87,19 @@ public class AccountService {
 
         throw new NotFoundException("Account", "Long", id);
     }
+
+    public List<UserAccountResponseDTO> getUserAccountByUserId(Long id) {
+        if(this.repository.existsById(id)){
+            List<UserAccount> users = this.userAccountRepository.findAllById_Account(id);
+            if(!users.isEmpty()){
+                return users.stream().map(a1->new UserAccountResponseDTO(a1)).collect(Collectors.toList());
+            }
+            else {
+                throw new NotFoundException("UserAccount", "Account_id in userAccount_id(userAccountId)", id);
+            }
+        }
+        else {
+            throw new NotFoundException("Account", "Account_id(Long)", id);
+        }
+    }
 }

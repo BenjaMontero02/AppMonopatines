@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Account {
 
-    @Id //card number?
+    @Id
     private Long id;
     @Column
     private Double wallet;
     @Column
     private Timestamp dateUp;
-    //mercadoLibre column ignored for the moment
+
 
     public Account(AccountRequestDTO requestDTO) {
         this.id = requestDTO.getId();

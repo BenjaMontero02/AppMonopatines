@@ -1,12 +1,14 @@
 package com.ScootersApp.Service.loadData;
 
-import com.ScootersApp.domain.Account;
-import com.ScootersApp.domain.User;
-import com.ScootersApp.domain.UserAccount;
-import com.ScootersApp.domain.UserAccountID;
+import com.ScootersApp.Service.DTOs.User.request.UserRequest;
+import com.ScootersApp.Service.UserService;
+import com.ScootersApp.domain.*;
 import com.ScootersApp.repository.AccountRepository;
+import com.ScootersApp.repository.RoleRepository;
 import com.ScootersApp.repository.UserAccountRepository;
 import com.ScootersApp.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,6 +17,8 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 @Component
@@ -22,34 +26,73 @@ public class CSVReader {
     private UserAccountRepository userAccountRepository;
     private UserRepository userRepository;
     private AccountRepository accountRepository;
+    private RoleRepository roleRepository;
+
+    private UserService userService;
+    private PasswordEncoder passwordEncoder;
+
     private static final String userDir =
             System.getProperty("user.dir") + "/src/main/java/com/ScootersApp/Service/loadData/";
 
-    public CSVReader(UserAccountRepository userAccountRepository, UserRepository userRepository, AccountRepository accountRepository) throws IOException, SQLException {
+    public CSVReader(RoleRepository roleRepository,UserAccountRepository userAccountRepository, UserRepository userRepository, AccountRepository accountRepository, UserService userService) throws IOException, SQLException {
         this.userAccountRepository = userAccountRepository;
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
+        this.roleRepository = roleRepository;
+        this.userService = userService;
+        this.passwordEncoder = new BCryptPasswordEncoder(16);
     }
 
     public void load() throws SQLException, IOException {
+        this.loadRoles();
         this.loadUser();
         this.loadAccount();
         this.loadUserAccount();
     }
 
+    private void loadRoles() throws IOException, SQLException {
+        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new
+                FileReader(userDir + "Roles.csv"));
+        for (CSVRecord row : parser) {
+            String type = String.valueOf(row.get("type"));
+
+            Role role = new Role(type);
+            roleRepository.save(role);
+        }
+    }
+
     private void loadUser() throws IOException, SQLException {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new
                 FileReader(userDir + "User.csv"));
+
+        CSVParser parserRol = CSVFormat.DEFAULT.withHeader().parse(new
+                FileReader(userDir + "Roles.csv"));
+
+        ArrayList<String> roles = new ArrayList<>();
+
+        for (CSVRecord row : parserRol) {
+            String type = String.valueOf(row.get("type"));
+            roles.add(type);
+        }
+
         for (CSVRecord row : parser) {
             String name = String.valueOf(row.get("name"));
             String surname = String.valueOf(row.get("sur_name"));
             String mail = String.valueOf(row.get("mail"));
             String password = String.valueOf(row.get("password"));
             String phoneNumber = String.valueOf(row.get("phone_number"));
-            String role = String.valueOf(row.get("role"));
 
-            User user = new User(name,surname,mail,password,phoneNumber,role);
-            userRepository.save(user);
+            Random random = new Random();
+            int i = random.nextInt(0,roles.size()-1);
+            ArrayList<String> userRoles = new ArrayList<>();
+
+            while (i>=0){
+                    userRoles.add(roles.get(i));
+                    i--;
+            }
+
+            UserRequest ur = new UserRequest(name,surname,mail,password,phoneNumber,userRoles);
+            userService.save(ur);
         }
     }
 

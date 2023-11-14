@@ -8,11 +8,11 @@ import lombok.Data;
 @Data
 public class ScooterTripIdResponseDTO {
 
-    private Scooter scooterId;
-    private Trip tripId;
+    private Long scooterId;
+    private Long tripId;
 
     public ScooterTripIdResponseDTO(ScooterTripId scooterTripId) {
-        this.scooterId = scooterTripId.getIdScooter();
-        this.tripId = scooterTripId.getIdTrip();
+        this.scooterId = scooterTripId.getIdScooter().getId();
+        this.tripId = scooterTripId.getIdTrip().getId();
     }
 }

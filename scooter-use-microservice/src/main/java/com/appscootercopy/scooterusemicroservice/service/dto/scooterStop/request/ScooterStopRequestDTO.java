@@ -1,6 +1,7 @@
 package com.appscootercopy.scooterusemicroservice.service.dto.scooterStop.request;
 
 import com.appscootercopy.scooterusemicroservice.domain.Ubication;
+import com.appscootercopy.scooterusemicroservice.service.dto.ubication.request.UbicationRequestDTO;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -10,5 +11,5 @@ import lombok.RequiredArgsConstructor;
 public class ScooterStopRequestDTO {
 
     @NotNull(message = "The ubication from scooterStop cannot be null")
-    private final Ubication ubication;
+    private Ubication ubication;
 }

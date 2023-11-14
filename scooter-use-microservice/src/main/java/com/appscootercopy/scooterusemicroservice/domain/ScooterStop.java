@@ -14,7 +14,7 @@ public class ScooterStop {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Ubication ubication;
 
     public ScooterStop(ScooterStopRequestDTO requestDTO) {

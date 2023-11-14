@@ -12,16 +12,16 @@
 - save UserAccount (done and passed)
 - 
 - get User by Id (done and passed)
-- get Account by Id
-- get UserAccounts by Id user
+- get Account by Id (done and passed)
+- get UserAccounts by Id user 
 - get UsersAccount by Id account
 - 
 - get Users (done and passed)
-- get Accounts
+- get Accounts (done and passed)
 - get UserAccounts***** (review)
 - 
-- delete user by id
-- delete account by id
+- delete user by id (done and passed)
+- delete account by id (done and passed)
 - delete useAccount by id (is neccesary the whole pk?)
 - 
 - update User (i should check the Id update (foreign key))
