@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,6 +27,12 @@ public class ScooterUseMicroserviceApplication {
 	@PostConstruct
 	public void init() throws SQLException, IOException {
 		this.loadDb.load();
+	}
+
+	@LoadBalanced
+	@Bean
+	public WebClient.Builder webClient(){
+		return WebClient.builder();
 	}
 
 }

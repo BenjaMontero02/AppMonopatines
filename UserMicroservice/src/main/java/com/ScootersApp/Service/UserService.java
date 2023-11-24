@@ -6,10 +6,7 @@ import com.ScootersApp.Service.DTOs.User.response.UserLoginResponseDTO;
 import com.ScootersApp.Service.DTOs.User.response.UserResponseDTO;
 import com.ScootersApp.Service.DTOs.userAccount.request.UserAccountRequestDTO;
 import com.ScootersApp.Service.DTOs.userAccount.response.UserAccountResponseDTO;
-import com.ScootersApp.Service.exception.ConflictExistException;
-import com.ScootersApp.Service.exception.ConflictWithStatusException;
-import com.ScootersApp.Service.exception.NotFoundException;
-import com.ScootersApp.Service.exception.ReferencedRowException;
+import com.ScootersApp.Service.exception.*;
 import com.ScootersApp.domain.*;
 import com.ScootersApp.repository.AccountRepository;
 import com.ScootersApp.repository.RoleRepository;
@@ -54,21 +51,26 @@ public class UserService {
     @Transactional
     public ResponseEntity save(UserRequest user){
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        if(!this.repository.existsByMail(user.getMail())){
-            User newUser= new User(user);
-            List<Role> roles = new ArrayList<>();
-            for(String s: user.getRoles()){
-                Role r = this.roleRepository.findById(s).get();
-                if(r != null){
-                    roles.add(r);
+        if(user.getMail().contains("@")){
+            if(!this.repository.existsByMail(user.getMail())){
+                User newUser= new User(user);
+                List<Role> roles = new ArrayList<>();
+                for(String s: user.getRoles()){
+                    Role r = this.roleRepository.findById(s).get();
+                    if(r != null){
+                        roles.add(r);
+                    }
                 }
+                newUser.setRoles(roles);
+                this.repository.save(newUser);
+                return new ResponseEntity(newUser.getID(), HttpStatus.CREATED);
             }
-            newUser.setRoles(roles);
-            this.repository.save(newUser);
-            return new ResponseEntity(newUser.getID(), HttpStatus.CREATED);
+            else {
+                throw new ConflictExistException("User", "mail", user.getMail());
+            }
         }
         else {
-            throw new ConflictExistException("User", "mail", user.getMail());
+            throw new ConflictInvalidMail(user.getMail());
         }
     }
 
@@ -95,20 +97,26 @@ public class UserService {
     public ResponseEntity<Long> updateUser(UserRequest userRequest, Long id) {
         userRequest.setPassword(this.passwordEncoder.encode(userRequest.getPassword()));
         if(this.repository.existsById(id)){
-            User user = this.repository.findById(id).get();
-            user.setName(userRequest.getName());
-            user.setSurname(userRequest.getSurname());
-            user.setMail(userRequest.getMail());
-            user.setPassword(userRequest.getPassword());
-            List<Role> roles = new ArrayList<>();
-            for(String s: userRequest.getRoles()){
-                Role r = this.roleRepository.findById(s).get();
-                if(r != null){
-                    roles.add(r);
+            if(!this.repository.existsByMail(userRequest.getMail())){
+                User user = this.repository.findById(id).get();
+                user.setName(userRequest.getName());
+                user.setSurname(userRequest.getSurname());
+
+                user.setMail(userRequest.getMail());
+                user.setPassword(userRequest.getPassword());
+                List<Role> roles = new ArrayList<>();
+                for(String s: userRequest.getRoles()){
+                    Role r = this.roleRepository.findById(s).get();
+                    if(r != null){
+                        roles.add(r);
+                    }
                 }
+                user.setRoles(roles);
+                return new ResponseEntity(user.getID(), HttpStatus.ACCEPTED);
             }
-            user.setRoles(roles);
-            return new ResponseEntity(user.getID(), HttpStatus.ACCEPTED);
+            else {
+                throw new ConflictExistException("User", "mail", userRequest.getMail());
+            }
         }
         else{
             throw new NotFoundException("User","Id",id);
@@ -225,5 +233,12 @@ public class UserService {
         else {
             throw new NotFoundException("User", "mail", mail);
         }
+    }
+
+    @Transactional(readOnly = true)
+    public UserLoginResponseDTO login(String mail) {
+        User u = this.repository.findByMail(mail);
+        if(u == null) throw new NotFoundException("User", "mail", mail);
+        return new UserLoginResponseDTO(u);
     }
 }

@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "fe2e5f85-ffbd-4c2c-8e89-bfffdeb5d7cb",
+		"name": "TripTestEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17975202"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJ1c2VyIiwiYWRtaW4iXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTY5OTcyMjYxMSwiZXhwIjoxNjk5NzI2MjExfQ.HaNC9Fktl16Kaq0MjwI0OGvFfpo1Qn5yOxFcNBvWowQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mail\": \"ebenko2@github.com\", \"password\": \"BocaSeptima4N\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth-microservice/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "findTripById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyMzE5MTMsImV4cCI6MTcwMDIzNTUxM30.lcgGkvQen6uCX81iKypAI_xZuCdG_VXLy7145L8wpVE"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/2"
+			},
+			"response": []
+		},
+		{
+			"name": "findAllTrip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNzQ0MDYsImV4cCI6MTcwMDI3ODAwNn0.xBkEudl8mHOBxIrQiffkx6G8dDoj9ql_wJcx8e5QMn4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTripByScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyMzYwNjUsImV4cCI6MTcwMDIzOTY2NX0.LTllImTVbguuQ1oiI8WdIawhVVmN_Bb9y2xNs40wNEk"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/scooter/3A46"
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDM0NDMsImV4cCI6MTcwMDI0NzA0M30.w4Z8wsZIMPs6ylt9D595jiDyyUrtuVwe8UxdWaEWJn0"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 22,\r\n\"initTime\": \"2023-10-04T19:00:00\",\r\n\"kms\": 2890,\r\n\"licenseScooter\": \"913L57\",\r\n\"userEmail\": \"bbutterwick0@craigslist.org\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/trip-microservice/api/trips"
+			},
+			"response": []
+		},
+		{
+			"name": "finishTrip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNzQ0MDYsImV4cCI6MTcwMDI3ODAwNn0.xBkEudl8mHOBxIrQiffkx6G8dDoj9ql_wJcx8e5QMn4"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"kms\": 200,\r\n\"ended\": true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/trip-microservice/api/trips/12"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTrip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDcxNjEsImV4cCI6MTcwMDI1MDc2MX0.SR08hjY7AQ-7utOz2IykDay2aXYysG45aYs2WWSFazg"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/10"
+			},
+			"response": []
+		},
+		{
+			"name": "initPause",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/1/stops"
+			},
+			"response": []
+		},
+		{
+			"name": "cancelPause",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/5/stops"
+			},
+			"response": []
+		},
+		{
+			"name": "findProfitsByMonthsInYear",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDcxNjEsImV4cCI6MTcwMDI1MDc2MX0.SR08hjY7AQ-7utOz2IykDay2aXYysG45aYs2WWSFazg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/trip-microservice/api/trips/profits?firstMonth=12&lastMonth=1&year=2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trip-microservice",
+						"api",
+						"trips",
+						"profits"
+					],
+					"query": [
+						{
+							"key": "firstMonth",
+							"value": "12"
+						},
+						{
+							"key": "lastMonth",
+							"value": "1"
+						},
+						{
+							"key": "year",
+							"value": "2022"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveNewPrices",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNTA5NTAsImV4cCI6MTcwMDI1NDU1MH0.R-lrJVGejkMWZYqNpHVhZ0vgSxRZEfrHqkVsRKUcb1g"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"priceService\": 20,\r\n\"priceInterest\": 40,\r\n\"current\": false,\r\n\"dateValidity\": \"2023-10-04T19:00:00\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/trip-microservice/api/trips/prices"
+			},
+			"response": []
+		},
+		{
+			"name": "findAllPrices",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNTA5NTAsImV4cCI6MTcwMDI1NDU1MH0.R-lrJVGejkMWZYqNpHVhZ0vgSxRZEfrHqkVsRKUcb1g"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/trip-microservice/api/trips/prices/"
+			},
+			"response": []
+		}
+	]
+}

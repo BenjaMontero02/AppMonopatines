@@ -33,4 +33,10 @@ public class Scooter {
         this.available = available;
         this.ubication = ubication;
     }
+
+    public Scooter(ScooterRequestDTO requestDTO, Double x, Double y) {
+        this.licensePLate = requestDTO.getLicensePlate();
+        this.available = requestDTO.getAvailable();
+        this.ubication = new Ubication(x, y);
+    }
 }

@@ -14,17 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class JWTUtill {
     private static final String SECRET_KEY = "APP_MONOPATIN";
     private static final Algorithm ALGORITHM = Algorithm.HMAC256(SECRET_KEY);
-    //private static final Long TIMER_OF_EXPIRATION = TimeUnit.MINUTES.toMillis(60);
-
-   /*public String createToken(String username, List<String> roles) {
-        return JWT.create()
-                .withSubject(username)
-                .withClaim("roles", roles)
-                .withIssuer("App_Monopatin")
-                .withIssuedAt(new Date())
-                .withExpiresAt(new Date(System.currentTimeMillis() + TIMER_OF_EXPIRATION))
-                .sign(ALGORITHM);
-    }*/
 
     public boolean isValid(String token) {
         try {

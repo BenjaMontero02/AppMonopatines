@@ -13,4 +13,9 @@ public class UbicationRequestDTO {
     private Double x;
     @NotNull(message = "The y cannot be null")
     private Double y;
+
+    public UbicationRequestDTO(Double x, Double y) {
+        this.x = x;
+        this.y = y;
+    }
 }

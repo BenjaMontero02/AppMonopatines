@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "0686e6c5-56f7-4b3f-8a1b-a9608784d9c3",
+		"name": "Tariff and prices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30069639",
+		"_collection_link": "https://www.postman.com/brianfreijomil/workspace/scooter-use-microservice/collection/30069639-0686e6c5-56f7-4b3f-8a1b-a9608784d9c3?action=share&source=collection_link&creator=30069639"
+	},
+	"item": [
+		{
+			"name": "totalProfits each month in year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/profits/2023",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"profits",
+						"2023"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get history prices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/prices/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"prices",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"priceService\": 221.3,\r\n    \"priceInterest\": 32.7,\r\n    \"current\": false,\r\n    \"dateValidity\": \"2023-11-14T15:00:00.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/prices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"prices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

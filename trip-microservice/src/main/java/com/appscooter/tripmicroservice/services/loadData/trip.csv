@@ -1,0 +1,16 @@
+init_time,end_time,ended,kms,id,licenseScooter,user,time_pause,init_pause,end_pause
+2022-01-01 13:40:00,2022-01-01 14:00:00,true,14.88,1,3A46,bbutterwick0@craigslist.org,300,13:45:00,13:50:00
+2023-01-01 13:00:00,2023-01-01 14:00:00,true,61.13,2,32V6,vconyert@reuters.com,,,
+2022-01-01 16:30:00,2022-01-01 17:00:00,true,62.06,3,9P81,cgilluley9@biglobe.ne.jp,420,16:38:00,16:45:00
+2023-03-21 16:00:00,2023-03-21 18:00:00,true,33.37,4,8PO34,tmarhamf@addtoany.com,,,
+2023-03-21 22:40:00,2023-03-21 23:00:00,true,57.57,5,913L57,vconyert@reuters.com,,,
+2023-03-21 21:40:00,2023-03-21 23:00:00,true,72.98,6,P0O864,tmarhamf@addtoany.com,,,
+2023-03-01 12:00:00,2023-03-01 14:00:00,true,80.84,7,7RE13,cgilluley9@biglobe.ne.jp,480,12:50:00,12:58:00
+2022-04-01 12:30:00,2022-04-01 13:00:00,true,18.77,8,0D1P9,kspeechleyl@wufoo.com,,,
+2023-04-05 13:00:00,2023-04-05 14:00:00,true,63.08,9,286PP,cgilluley9@biglobe.ne.jp,600,13:30:00,13:40:00
+2023-04-11 14:30:00,2023-04-11 15:00:00,true,20.91,10,13L91,cgilluley9@biglobe.ne.jp,500,14:35:00,14:40:00
+2023-09-29 19:00:00,2023-09-29 21:00:00,true,98.58,11,49HB23,kspeechleyl@wufoo.com,,,
+2022-09-30 18:30:00,2022-09-30 21:00:00,true,74.35,12,85VB2,agierckec@bigcartel.com,,,
+2023-10-03 16:00:00,2023-10-03 17:00:00,true,52.85,13,418LA7,dparmintero@yolasite.com,300,16:40:00,16:45:00
+2023-10-03 15:30:00,2023-10-03 18:00:00,true,41.9,14,6BRA17,dparmintero@yolasite.com,900,17:30:00,17:45:00
+2023-10-04 17:30:00,2023-10-04 19:00:00,true,16.74,15,29LUC4,agierckec@bigcartel.com,900,17:30:00,17:45:00

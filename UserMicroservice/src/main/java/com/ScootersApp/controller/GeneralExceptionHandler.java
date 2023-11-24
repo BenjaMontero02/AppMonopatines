@@ -39,4 +39,9 @@ public class GeneralExceptionHandler {
     public ResponseEntity conflictExistException(ConflictWithStatusException exception) {
         return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(ConflictInvalidMail.class)
+    public ResponseEntity conflictExistException(ConflictInvalidMail exception) {
+        return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.CONFLICT);
+    }
 }

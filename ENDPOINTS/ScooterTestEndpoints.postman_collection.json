@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "2d03758a-de07-4cba-9bf6-ebf50ec3065c",
+		"name": "ScooterTestEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17975202"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mail\": \"bbutterwick0@craigslist.org\", \"password\": \"BocaSeptima4N\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth-microservice/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "getScooterByLicensePlate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDM0NDMsImV4cCI6MTcwMDI0NzA0M30.w4Z8wsZIMPs6ylt9D595jiDyyUrtuVwe8UxdWaEWJn0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/913L57"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNzQ0MDYsImV4cCI6MTcwMDI3ODAwNn0.xBkEudl8mHOBxIrQiffkx6G8dDoj9ql_wJcx8e5QMn4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/"
+			},
+			"response": []
+		},
+		{
+			"name": "getCountScooterByAvailability",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlYmVua28yQGdpdGh1Yi5jb20iLCJyb2xlcyI6WyJ1c2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAxNzI2MDQsImV4cCI6MTcwMDE3NjIwNH0.bCBm8WGm4zCKLus5AaDsVX6Ytg6n-K5Fx_NIkFW3Vfg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/availability"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllScooterCloseToMe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlYmVua28yQGdpdGh1Yi5jb20iLCJyb2xlcyI6WyJ1c2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAxNzI2MDQsImV4cCI6MTcwMDE3NjIwNH0.bCBm8WGm4zCKLus5AaDsVX6Ytg6n-K5Fx_NIkFW3Vfg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/scooter-microservice/api/scooters/close?x=26&y=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"scooter-microservice",
+						"api",
+						"scooters",
+						"close"
+					],
+					"query": [
+						{
+							"key": "x",
+							"value": "26"
+						},
+						{
+							"key": "y",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyMjc5MDMsImV4cCI6MTcwMDIzMTUwM30.gyp-4c7SbhPAuuETBUDEvFwjAtdVvFUow8pOJu_POTs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"available\": true,\r\n\"licensePlate\": \"hector777\",\r\n\"ubication\": {\r\n    \"x\": 13,\r\n    \"y\": 15\r\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/scooter-microservice/api/scooters"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDcxNjEsImV4cCI6MTcwMDI1MDc2MX0.SR08hjY7AQ-7utOz2IykDay2aXYysG45aYs2WWSFazg"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/3A46"
+			},
+			"response": []
+		},
+		{
+			"name": "updateScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyMjc5MDMsImV4cCI6MTcwMDIzMTUwM30.gyp-4c7SbhPAuuETBUDEvFwjAtdVvFUow8pOJu_POTs"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"available\": false,\r\n\"licensePlate\": \"9P81\",\r\n\"ubication\": {\r\n    \"id\": 200,\r\n    \"x\": 400,\r\n    \"y\": 990\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/3"
+			},
+			"response": []
+		},
+		{
+			"name": "changeAvailabilityScooter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0cGVwZXJlbGw0QDE2ODguY29tIiwicm9sZXMiOlsidXNlciIsIm1hbmFnZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE5MjkyMywiZXhwIjoxNzAwMTk2NTIzfQ.Kj9zPRTbXw1TsFKsBfI6Xvs6s5XDPQt9JebF8_cj4bk"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"available\": false}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getReportUseScootersByKms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNzQ0MDYsImV4cCI6MTcwMDI3ODAwNn0.xBkEudl8mHOBxIrQiffkx6G8dDoj9ql_wJcx8e5QMn4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/report/kms"
+			},
+			"response": []
+		},
+		{
+			"name": "getReportUseScootersByTimeCcPauses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDcxNjEsImV4cCI6MTcwMDI1MDc2MX0.SR08hjY7AQ-7utOz2IykDay2aXYysG45aYs2WWSFazg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/report/pauses"
+			},
+			"response": []
+		},
+		{
+			"name": "getReportUseScootersByTimeOutPauses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0cGVwZXJlbGw0QDE2ODguY29tIiwicm9sZXMiOlsidXNlciIsIm1hbmFnZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE5MzIwMywiZXhwIjoxNzAwMTk2ODAzfQ.qIfMvy41Fv2vgarUJZT_Pj5k3Wk72xmtIePOsTXPxt4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/report/non&pauses"
+			},
+			"response": []
+		},
+		{
+			"name": "getScooterStopByUbication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0cGVwZXJlbGw0QDE2ODguY29tIiwicm9sZXMiOlsidXNlciIsIm1hbmFnZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE5MzIwMywiZXhwIjoxNzAwMTk2ODAzfQ.qIfMvy41Fv2vgarUJZT_Pj5k3Wk72xmtIePOsTXPxt4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/stops/25"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllScooterByTripsAndYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbWFncmFuZTdAaW1ndXIuY29tIiwicm9sZXMiOlsiYWRtaW4iXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE5Mzg0NywiZXhwIjoxNzAwMTk3NDQ3fQ.NDL7unZU9oTEQGqn__Rk9e9SSCUlLGXcJHeShQ27Evw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"minCountTrips\": 0,\r\n\"year\": 2023}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/trips&year"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllScooterStop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDM0NDMsImV4cCI6MTcwMDI0NzA0M30.w4Z8wsZIMPs6ylt9D595jiDyyUrtuVwe8UxdWaEWJn0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/stops/"
+			},
+			"response": []
+		},
+		{
+			"name": "saveScooterStop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAxOTUwNjksImV4cCI6MTcwMDE5ODY2OX0.vN2cx5DhtTryRbZwgKFM-gerfgln-IxnNcDop84mw_0"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ubication\": {\r\n    \"x\" : 10,\r\n    \"y\": 10\r\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/stops"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteScooterStop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNDM0NDMsImV4cCI6MTcwMDI0NzA0M30.w4Z8wsZIMPs6ylt9D595jiDyyUrtuVwe8UxdWaEWJn0"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/stops/5"
+			},
+			"response": []
+		},
+		{
+			"name": "updateScooterStop",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/stops/2"
+			},
+			"response": []
+		},
+		{
+			"name": "getUbicationById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAxOTUwNjksImV4cCI6MTcwMDE5ODY2OX0.vN2cx5DhtTryRbZwgKFM-gerfgln-IxnNcDop84mw_0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/ubications/3"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUbication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiLCJtYW5hZ2VyIl0sImlzcyI6IkFwcF9Nb25vcGF0aW4iLCJpYXQiOjE3MDAyNzQ0MDYsImV4cCI6MTcwMDI3ODAwNn0.xBkEudl8mHOBxIrQiffkx6G8dDoj9ql_wJcx8e5QMn4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/ubications/"
+			},
+			"response": []
+		},
+		{
+			"name": "checkScooterInStop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJ1c2VyIiwiYWRtaW4iXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTY5OTcyMjYxMSwiZXhwIjoxNjk5NzI2MjExfQ.HaNC9Fktl16Kaq0MjwI0OGvFfpo1Qn5yOxFcNBvWowQ"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/scooter-microservice/api/scooters/3A46/in-stop"
+			},
+			"response": []
+		}
+	]
+}

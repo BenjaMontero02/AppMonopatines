@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "2439ad50-dd3c-4790-b635-c85a369dea4c",
+		"name": "accountEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17992224",
+		"_collection_link": "https://dark-crater-944911.postman.co/workspace/cubanitos~c9ba7c25-313f-4a36-8f5f-b23e7d062efc/collection/17992224-2439ad50-dd3c-4790-b635-c85a369dea4c?action=share&source=collection_link&creator=17992224"
+	},
+	"item": [
+		{
+			"name": "save",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE3MzI3MCwiZXhwIjoxNzAwMTc2ODcwfQ.j-8mjTh9EOsaiEOe7jNJH3JVS9vRwyDHJzRQ__-yWpE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 20,\r\n        \"wallet\": 25583.63,\r\n        \"dateUp\": \"2023-10-05T17:00:00.000+00:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user-microservice/api/accounts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-microservice",
+						"api",
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllAccounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDI2NTk1MywiZXhwIjoxNzAwMjY5NTUzfQ.HJidDalDEhmexy7EVnrzzG3Br6Mq6Cf6inXDKRHr0lk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-microservice/api/accounts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-microservice",
+						"api",
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAccountById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDI2NTk1MywiZXhwIjoxNzAwMjY5NTUzfQ.HJidDalDEhmexy7EVnrzzG3Br6Mq6Cf6inXDKRHr0lk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-microservice/api/accounts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-microservice",
+						"api",
+						"accounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAccount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDI2NTk1MywiZXhwIjoxNzAwMjY5NTUzfQ.HJidDalDEhmexy7EVnrzzG3Br6Mq6Cf6inXDKRHr0lk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user-microservice/api/accounts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user-microservice",
+						"api",
+						"accounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYnV0dGVyd2ljazBAY3JhaWdzbGlzdC5vcmciLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiQXBwX01vbm9wYXRpbiIsImlhdCI6MTcwMDE3MzI3MCwiZXhwIjoxNzAwMTc2ODcwfQ.j-8mjTh9EOsaiEOe7jNJH3JVS9vRwyDHJzRQ__-yWpE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\":4,\r\n        \"wallet\": 25583.63,\r\n        \"dateUp\": \"2023-10-05T17:00:00.000+00:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/accounts/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

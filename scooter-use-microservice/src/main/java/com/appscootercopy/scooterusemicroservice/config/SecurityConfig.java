@@ -31,11 +31,19 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> {
                     authorize
+                            .requestMatchers("/v1/authenticate","/v3/api-docs/**", "/api-docs/**", "/api-docs", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                             .requestMatchers( HttpMethod.GET,
                                     "api/scooters/report/kms",
                                     "api/scooters/report/pauses",
                                     "api/scooters/report/non&pauses" ).hasRole(Constants.MANAGER)
-
+                            .requestMatchers( HttpMethod.GET, "api/scooters/trips&year","api/scooters/availability").hasRole(Constants.ADMIN)
+                            .requestMatchers( HttpMethod.POST, "api/scooters").hasRole(Constants.ADMIN)
+                            .requestMatchers( HttpMethod.DELETE, "api/scooters/{id}").hasRole(Constants.ADMIN)
+                            .requestMatchers( HttpMethod.PUT, "api/scooters/{id}").hasRole(Constants.ADMIN)
+                            .requestMatchers( HttpMethod.PATCH, "api/scooters/{id}").hasAnyRole(Constants.ADMIN, Constants.MANAGER)
+                            .requestMatchers( HttpMethod.POST, "api/scooters/stops").hasAnyRole(Constants.ADMIN, Constants.MANAGER)
+                            .requestMatchers( HttpMethod.DELETE, "api/scooters/stops/{id}").hasAnyRole(Constants.ADMIN, Constants.MANAGER)
+                            .requestMatchers( HttpMethod.PUT, "api/scooters/stops/{id}").hasAnyRole(Constants.ADMIN, Constants.MANAGER)
                             .anyRequest()
                             .authenticated();
                 } )

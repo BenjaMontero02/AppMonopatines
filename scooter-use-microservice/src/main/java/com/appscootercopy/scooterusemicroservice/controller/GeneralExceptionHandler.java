@@ -27,14 +27,14 @@ public class GeneralExceptionHandler {
         return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(PauseActiveException.class)
-    public ResponseEntity pauseActiveException(PauseActiveException exception) {
-        return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.CONFLICT);
-    }
-
     @ExceptionHandler(InvalidScooterStopException.class)
     public ResponseEntity invalidScooterStopException(InvalidScooterStopException exception) {
         return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity badRequest(BadRequestException exception) {
+        return new ResponseEntity(new ErrorDTO(exception.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class) //MethodArgumentNotValidException, receives the exception of validations

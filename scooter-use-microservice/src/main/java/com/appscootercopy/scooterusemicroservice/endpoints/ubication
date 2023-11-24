@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "67501c68-b238-41d6-b08a-307a3b9d368d",
+		"name": "Endpoints Ubication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30069639",
+		"_collection_link": "https://www.postman.com/brianfreijomil/workspace/scooter-use-microservice/collection/30069639-67501c68-b238-41d6-b08a-307a3b9d368d?action=share&source=collection_link&creator=30069639"
+	},
+	"item": [
+		{
+			"name": "get ubication",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/scooterApp/api/scooters/ubications/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"scooterApp",
+						"api",
+						"scooters",
+						"ubications",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all ubication",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/scooters/ubications/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"scooters",
+						"ubications",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

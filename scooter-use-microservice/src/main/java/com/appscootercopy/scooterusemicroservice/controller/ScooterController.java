@@ -7,12 +7,12 @@ import com.appscootercopy.scooterusemicroservice.service.dto.scooter.request.Tri
 import com.appscootercopy.scooterusemicroservice.service.dto.scooter.response.*;
 import com.appscootercopy.scooterusemicroservice.service.dto.scooterStop.request.ScooterStopRequestDTO;
 import com.appscootercopy.scooterusemicroservice.service.dto.scooterStop.response.ScooterStopResponseDTO;
-import com.appscootercopy.scooterusemicroservice.service.dto.scooterTrip.request.ScooterTripRequestDTO;
-import com.appscootercopy.scooterusemicroservice.service.dto.scooterTrip.response.ScooterTripResponseDTO;
+import com.appscootercopy.scooterusemicroservice.service.dto.trip.ScooterByTripsYearResponseDTO;
 import com.appscootercopy.scooterusemicroservice.service.dto.ubication.request.UbicationRequestDTO;
 import com.appscootercopy.scooterusemicroservice.service.dto.ubication.response.UbicationResponseDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,18 +37,13 @@ public class ScooterController {
         return this.scooterService.findAllScooter();
     }
 
-    @GetMapping("/fetching")
-    public List<ScooterResponseDTO> getAllScooterFetch(){
-        return this.scooterService.findAllScooterFetchingUbication();
-    }
-
     @GetMapping("/availability")
     public ReportAvailabilityDTO getCountScooterByAvailability(){
         return this.scooterService.findCountScooterByAvailability();
     }
 
     @GetMapping("/close")
-    public List<ScooterResponseDTO> getAllScooterCloseToMe(@RequestBody @Valid UbicationRequestDTO request){
+    public List<ScooterResponseDTO> getAllScooterCloseToMe(UbicationRequestDTO request){
         return this.scooterService.findAllScooterCloseToMe(request);
     }
 
@@ -73,17 +68,17 @@ public class ScooterController {
     }
 
     @GetMapping("/report/kms")
-    public List<ReportUseScootersByKmsDTO> getReportUseScootersByKms() {
+    public List<ReportScootersDTO> getReportUseScootersByKms() {
         return this.scooterService.findUseScootersByKms();
     }
 
     @GetMapping("/report/pauses")
-    public List<ReportUseScootersByTimeCcPauses> getReportUseScootersByTimeCcPauses() {
+    public List<ReportScootersDTO> getReportUseScootersByTimeCcPauses() {
         return this.scooterService.findUseScootersByTimeCcPauses();
     }
 
     @GetMapping("/report/non&pauses")
-    public List<ReportUseScootersByTimeOutPauses> getReportUseScootersByTimeOutPauses() {
+    public List<ReportScootersDTO> getReportUseScootersByTimeOutPauses() {
         return this.scooterService.findUseScootersByTimeOutPauses();
     }
 
@@ -117,27 +112,6 @@ public class ScooterController {
         return this.scooterService.updateScooterStop(request, id);
     }
 
-    @GetMapping("/{id}/trip/{idTrip}")
-    public ScooterTripResponseDTO getScooterTripById(@PathVariable Long id, @PathVariable Long idTrip) {
-        return this.scooterService.findScooterTripById(id,idTrip);
-    }
-
-    @GetMapping("/trips")
-    public List<ScooterTripResponseDTO> getAllScooterTrip() {
-        return this.scooterService.findAllScooterTrip();
-    }
-
-    @GetMapping("/{id}/trips")
-    public List<ScooterTripResponseDTO> getAllScooterTripByScooterId(@PathVariable Long id) {
-        return this.scooterService.findAllScooterTripByScooterId(id);
-    }
-
-    /*
-    @PostMapping("/trip")
-    public ResponseEntity saveScooterTrip(@RequestBody @Valid ScooterTripRequestDTO request) {
-        return this.scooterService.saveScooterTrip(request);
-    }*/
-
     @GetMapping("/ubications/{id}")
     public UbicationResponseDTO getUbicationById(@PathVariable Long id){
         return scooterService.findUbicationById(id);
@@ -146,6 +120,11 @@ public class ScooterController {
     @GetMapping("/ubications/")
     public List<UbicationResponseDTO> getAllUbication(){
         return this.scooterService.findAllUbication();
+    }
+
+    @GetMapping("/{licensePlate}/in-stop")
+    public ResponseEntity checkScooterInStop(@PathVariable String licensePlate){
+        return this.scooterService.checkScooterInStop(licensePlate);
     }
 
 

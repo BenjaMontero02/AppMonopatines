@@ -5,6 +5,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,7 @@ public class AuthenticationFilter implements GatewayFilter {
         ServerHttpRequest request = exchange.getRequest();
         if (routerValidator.isSecured.test(request)) {
             if (this.isAuthMissing(request)) {
-                return this.onError(exchange, HttpStatus.UNAUTHORIZED);
+                return this.onError(exchange, HttpStatus.FORBIDDEN);
             }
 
             final String tokenCadena = this.getAuthHeader(request);
@@ -46,10 +47,10 @@ public class AuthenticationFilter implements GatewayFilter {
             final String token = cadena[1];
 
             if (!jwtUtill.isValid(token)) {
-                return this.onError(exchange, HttpStatus.FORBIDDEN);
+                return this.onError(exchange, HttpStatus.UNAUTHORIZED);
             }
 
-
+            System.out.println("llego desp del trip");
             //logica para los roles
             this.updateRequest(exchange, token);
         }

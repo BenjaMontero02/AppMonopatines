@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.userServiceGRPC";
+
+service userService{
+
+  rpc getUser(email) returns (UserResponseDTO){}
+}
+
+  message email{
+    string email = 1;
+  }
+
+  message UserResponseDTO{
+    string email = 1;
+    string password = 2;
+    repeated Role roles = 3;
+  }
+
+  message Role{
+    string name = 1;
+  }
+
+
+
+

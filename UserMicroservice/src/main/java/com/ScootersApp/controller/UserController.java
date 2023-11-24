@@ -27,7 +27,6 @@ public class UserController {
 
     @GetMapping("/")
     public List<UserResponseDTO> getAllUsers(){
-        System.out.println("llego");
         return this.service.findAll();
     }
 
@@ -51,7 +50,6 @@ public class UserController {
     public ResponseEntity<UserLoginResponseDTO> login(@PathVariable String mail){
         return this.service.findByMail(mail);
     }
-
 
     @GetMapping("/{mail}")
     public ResponseEntity<UserResponseDTO> getByMail(@PathVariable String mail){

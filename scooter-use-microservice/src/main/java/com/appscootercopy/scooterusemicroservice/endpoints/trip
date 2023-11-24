@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "9c690769-6f05-4bdc-9e64-bb0e0f304fd7",
+		"name": "Endpoints Trip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30069639",
+		"_collection_link": "https://www.postman.com/brianfreijomil/workspace/scooter-use-microservice/collection/30069639-9c690769-6f05-4bdc-9e64-bb0e0f304fd7?action=share&source=collection_link&creator=30069639"
+	},
+	"item": [
+		{
+			"name": "update trip",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 20,\r\n    \"initTime\": \"2023-10-27T15:20:00.000+00:00\",\r\n    \"endTime\": \"2023-10-27T22:20:00.000+00:00\",\r\n    \"kms\": 19.84,\r\n    \"ended\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Trip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All Trip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Trip",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Trip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 20,\r\n    \"initTime\": \"2023-11-14T11:00:00.000+00:00\",\r\n    \"endTime\": null,\r\n    \"kms\": 10.14,\r\n    \"ended\": false,\r\n    \"licenseScooter\": \"286PP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "init pause",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/29/stops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"29",
+						"stops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "end pause",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/trips/11/stops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"11",
+						"stops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finish trip",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kms\": 15.7,\r\n    \"ended\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update scooter",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"licensePlate\": \"1807J\",\r\n    \"available\": true,\r\n    \"ubication\": {\r\n        \"x\": 198.1,\r\n        \"y\": 22.3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/scooters/56",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"scooters",
+						"56"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
