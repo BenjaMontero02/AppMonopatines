@@ -1,7 +1,7 @@
 # AppMonopatines
 Trabajo final de la materia arquitecturas web
 
-Este proyecto representó el trabajo final de la materia Arquitecturas Web, enfocándose en la aplicación práctica de los conocimientos adquiridos en Spring Boot. Se desarrolló una aplicación con una arquitectura basada en microservicios, implementando Spring Cloud Gateway junto con Spring Security + JWT.
+Este proyecto representó el trabajo final de la materia Arquitecturas Web, enfocándose en la aplicación práctica de los conocimientos adquiridos en Spring Boot. Se desarrolló una aplicación con una arquitectura n-tier basada en microservicios, implementando Spring Cloud Gateway junto con Spring Security + JWT.
 
 El proyecto se centra en una aplicación dedicada a la gestión de monopatines, donde los usuarios tienen la capacidad de utilizar estos vehículos. La aplicación cuenta con una sólida lógica de negocios que opera en segundo plano. En este caso, el enfoque se limitó al backend.
 
